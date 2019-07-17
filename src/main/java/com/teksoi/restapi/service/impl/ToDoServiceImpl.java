@@ -34,6 +34,7 @@ public class ToDoServiceImpl implements ToDoService {
     @Override
     public Response create(ToDoDto toDoDto) {
         ToDo toDo = modelMapper.map(toDoDto, ToDo.class);
+        toDo.setActive(true);
         toDo = toDoRepository.save(toDo);
         if (toDo != null) {
             return ResponseBuilder.getSuccessResponse(HttpStatus.CREATED, null, String.format("Created successfully", root));
@@ -43,7 +44,7 @@ public class ToDoServiceImpl implements ToDoService {
 
     @Override
     public Response getAll() {
-        List<ToDo> toDoList = toDoRepository.findAll();
+        List<ToDo> toDoList = toDoRepository.findAllByActiveTrue();
         List<ToDoDto> responseDtos = new ArrayList<>();
         toDoList.forEach(course -> {
             ToDoDto toDoDto = modelMapper.map(course, ToDoDto.class);
