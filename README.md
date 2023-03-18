@@ -1,3 +1,1 @@
-# RestApiSpringBoot
-
-# REST API for CRUD operation
+# Spring project collection
