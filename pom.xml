@@ -28,6 +28,7 @@
 	<modules>
 		<module>RestApiBase</module>
 		<module>camunda-process-automation</module>
-	</modules>
+        <module>BasicRestApi</module>
+    </modules>
 
 </project>
