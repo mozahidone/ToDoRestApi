@@ -29,6 +29,7 @@
 		<module>RestApiBase</module>
 		<module>camunda-process-automation</module>
         <module>BasicRestApi</module>
+        <module>spring-boot-validation-and-exceptions</module>
     </modules>
 
 </project>
