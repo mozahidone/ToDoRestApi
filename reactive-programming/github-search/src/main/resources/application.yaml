@@ -1,0 +1,6 @@
+spring:
+  resources:
+    static-locations: classpath:/static/
+
+key1: url
+key2: content
