@@ -1,12 +1,15 @@
 package com.mozahidone.github.service;
 
+import com.mozahidone.github.dto.Item;
 import com.mozahidone.github.dto.OutputDTO;
 import com.mozahidone.github.dto.RepositoryDTO;
 import com.mozahidone.github.dto.SearchResultDTO;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 import reactor.util.function.Tuple2;
 
 import java.io.BufferedReader;
@@ -39,6 +42,14 @@ public class StreamService {
 
     }
 
+    public Mono<OutputDTO> search(String query) {
+        return webClient.get()
+                .uri("/search/repositories?q={query}", query)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(OutputDTO.class);
+    }
+
     private OutputDTO callGitHubAPI(String service, String keyword) {
         System.out.println("Service: " + service + ", keyword: " + keyword);
         Map<String, String> uriVariables = new HashMap<>();
@@ -60,7 +71,7 @@ public class StreamService {
         for(RepositoryDTO item: searchResultDTO.getItems()) {
             //RepositoryDTO repositoryDTO = new RepositoryDTO();
 
-            OutputDTO.Item inner = outputDTO.new Item();
+            Item inner = new Item();
 
             inner.setName(item.getName());
             inner.setHtmlUrl(item.getHtmlUrl());
