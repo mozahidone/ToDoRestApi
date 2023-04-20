@@ -1,0 +1,27 @@
+type Transaction {
+    id: Int
+    accountNumber: String
+    fromAccount: String
+    amount: Float
+    balance: Float
+}
+
+type NewTransaction {
+    id: Int
+    accountNumber: String
+    fromAccount: String
+    amount: Float
+    balance: Float
+    createdOn: String
+}
+
+input TransactionInput {
+    accountNumber: String
+    fromAccount: String
+    amount: Float
+    balance: Float
+}
+
+input TransactionFilter {
+    accountNumber: String
+}

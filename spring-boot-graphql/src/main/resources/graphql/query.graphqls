@@ -1,0 +1,13 @@
+
+type Query {
+    getTransactions(filter: TransactionFilter): [NewTransaction]
+}
+
+type Mutation {
+    newTransaction(input: TransactionInput): NewTransaction
+}
+
+type Subscription {
+    transactions(filter: TransactionFilter): [NewTransaction]
+    getTransactionList(filter: TransactionFilter): [NewTransaction]
+}

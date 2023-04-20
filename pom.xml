@@ -31,6 +31,7 @@
         <module>BasicRestApi</module>
         <module>spring-boot-validation-and-exceptions</module>
 		<module>reactive-programming</module>
-	</modules>
+        <module>spring-boot-graphql</module>
+    </modules>
 
 </project>
