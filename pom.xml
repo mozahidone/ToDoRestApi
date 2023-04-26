@@ -32,6 +32,7 @@
         <module>spring-boot-validation-and-exceptions</module>
 		<module>reactive-programming</module>
         <module>spring-boot-graphql</module>
+        <module>BackendApi</module>
     </modules>
 
 </project>
