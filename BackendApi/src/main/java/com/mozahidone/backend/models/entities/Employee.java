@@ -40,7 +40,13 @@ public class Employee implements Serializable {
 	public Employee() {
 		
 	}
-	
+
+	public Employee(String firstName, String lastName, @Email String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+	}
+
 	public Employee(String firstName, String lastName, @Email String email, String jobTitle, String phone, String imageUrl, String employeeCode) {
 		this.firstName = firstName;
 		this.lastName = lastName;
