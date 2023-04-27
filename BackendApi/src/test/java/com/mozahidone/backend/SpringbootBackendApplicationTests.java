@@ -1,6 +1,6 @@
 package com.mozahidone.backend;
 
-import org.junit.jupiter.api.Assertions;
+import static org.junit.jupiter.api.Assertions.*;
 import com.mozahidone.backend.controller.EmployeeRestController;
 import com.mozahidone.backend.models.entities.Employee;
 import com.mozahidone.backend.services.EmployeeService;
@@ -41,7 +41,65 @@ class SpringbootBackendApplicationTests {
 		ResponseEntity<List<Employee>> response = controller.findAll();
 
 		// Assert
-		Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
-		Assertions.assertEquals(mockEmployees, response.getBody());
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertEquals(mockEmployees, response.getBody());
+	}
+
+	@Test
+	void testFindById() {
+		// Arrange
+		Employee employee = new Employee("John",  "Doe", "john@example.com");
+		Mockito.when(employeeService.findById(1)).thenReturn(employee);
+
+		// Act
+		ResponseEntity<Employee> response = controller.findById(1);
+
+		// Assert
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertEquals(employee, response.getBody());
+	}
+
+	@Test
+	void testSave() {
+		// Arrange
+		Employee employeeToSave = new Employee("John", "Doe", "john@x.com");
+		Employee savedEmployee = new Employee("John", "Doe", "john@x.com");
+		Mockito.when(employeeService.save(employeeToSave)).thenReturn(savedEmployee);
+
+		// Act
+		ResponseEntity<Employee> response = controller.save(employeeService.save(employeeToSave));
+
+		// Assert
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertEquals(savedEmployee, response.getBody());
+	}
+
+	@Test
+	void testUpdate() {
+		// Arrange
+		Employee employeeToUpdate = new Employee("John", "Doe", "j@x.com");
+		Employee updatedEmployee = new Employee("John", "Doe", "j@x.com");
+
+		Mockito.when(employeeService.update(employeeToUpdate)).thenReturn(updatedEmployee);
+
+		// Act
+		ResponseEntity<Employee> response = controller.update(employeeToUpdate);
+
+		// Assert
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		assertEquals(updatedEmployee, response.getBody());
+	}
+
+	@Test
+	void testDeleteByid() {
+		// Arrange
+		int employeeIdToDlete = 1;
+
+		// Act
+		ResponseEntity<?> response = controller.deleteById(employeeIdToDlete);
+
+		// Assert
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+		Mockito.verify(employeeService, Mockito.times(1)).deleteById(employeeIdToDlete);
 	}
 }
