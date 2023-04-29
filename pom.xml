@@ -34,6 +34,7 @@
         <module>spring-boot-graphql</module>
         <module>BackendApi</module>
         <module>osgi</module>
+        <module>thymleaf</module>
     </modules>
 
 </project>
