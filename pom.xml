@@ -33,6 +33,7 @@
 		<module>reactive-programming</module>
         <module>spring-boot-graphql</module>
         <module>BackendApi</module>
+        <module>osgi</module>
     </modules>
 
 </project>
