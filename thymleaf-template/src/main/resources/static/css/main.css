@@ -83,3 +83,7 @@ td.pc-fb-font span.company-initials {
   line-height: 32px;
   color: #32363a;
 }
+
+.image-container {
+    padding-left: 20px;
+}

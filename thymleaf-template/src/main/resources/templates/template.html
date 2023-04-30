@@ -6,24 +6,21 @@
 	<link href="/css/main.css" rel="stylesheet">
 </head>
 <body>
-
+<!--<div class="image-container">
+	<img th:src="${icon}" alt="Image">
+</div>-->
 <table class="email-table">
 	<tbody>
 	<tr th:if="${hasImageIcon}">
-		<td align="start" valign="top" class="email-td">
-			<div class="circle">
-				<p>MA</p>
-			</div>
+		<td class="pc-fb-font email-td" valign="top">
+			<img th:src="${icon}" alt="Image">
 		</td>
 	</tr>
 	<tr>
-		<td class="pc-fb-font email-td" valign="top">
-			<span></span>
-		</td>
-	</tr>
-	<tr th:if-else>
-		<td class="pc-fb-font email-td" valign="top">
-			<span class="company-initials" th:text="${companyInitial}"></span>
+		<td align="start" valign="top" class="email-td">
+			<div class="circle">
+				<p th:text="${companyInitial}"></p>
+			</div>
 		</td>
 	</tr>
 	<tr>
