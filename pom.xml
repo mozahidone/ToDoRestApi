@@ -35,6 +35,7 @@
         <module>BackendApi</module>
         <module>osgi</module>
         <module>thymleaf</module>
+        <module>thymleaf-template</module>
     </modules>
 
 </project>

@@ -1,0 +1,34 @@
+body {
+font-family: Arial, sans-serif;
+font-weight: 300;
+}
+.pc-fb-font {
+font-family: Helvetica, Arial, sans-serif !important;
+}
+.company-initials {
+color: yellow;
+font-size: 28px;
+line-height: 32px;
+width: 96px;;
+height: 96px;;
+border-radius: 50%;
+text-align: center;
+align-items: center;
+justify-content: center;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: #9DD17E;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle p {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
