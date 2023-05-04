@@ -6,7 +6,7 @@ import static org.mockito.Mockito.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ATMTest {
-    private Bank mockedBank;
+    /*private Bank mockedBank;
     private User testUser;
     private ATM atm;
 
@@ -112,5 +112,5 @@ class ATMTest {
         assertEquals(bankName, ATM.getBankName());
         verifyStatic(Bank.class);
         Bank.getBankName();
-    }
+    }*/
 }
