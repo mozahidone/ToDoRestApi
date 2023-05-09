@@ -14,6 +14,7 @@
         <module>s3-file-storage</module>
         <module>lambda</module>
         <module>dynamoDB</module>
+        <module>sqs</module>
     </modules>
 
     <artifactId>aws-services</artifactId>
