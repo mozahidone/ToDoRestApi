@@ -13,7 +13,7 @@
     <modules>
         <module>s3-file-storage</module>
         <module>lambda</module>
-        <module>DynamoDB</module>
+        <module>dynamoDB</module>
     </modules>
 
     <artifactId>aws-services</artifactId>
