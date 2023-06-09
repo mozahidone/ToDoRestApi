@@ -38,6 +38,7 @@
         <module>thymleaf-template</module>
         <module>spring-security-jwt</module>
         <module>aws-services</module>
-    </modules>
+		<module>event-sourcing</module>
+	</modules>
 
 </project>
