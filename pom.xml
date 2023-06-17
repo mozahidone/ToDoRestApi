@@ -39,6 +39,7 @@
         <module>spring-security-jwt</module>
         <module>aws-services</module>
 		<module>event-sourcing</module>
+		<module>graph-db</module>
 	</modules>
 
 </project>
