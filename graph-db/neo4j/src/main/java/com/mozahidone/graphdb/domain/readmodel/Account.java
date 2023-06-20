@@ -27,7 +27,11 @@ public class Account {
     private String address;
     private BigDecimal balance;
 
-    @Relationship(type = "DIRECTED", direction = Relationship.Direction.INCOMING)
-    private List<Payment> payments = new ArrayList<>();
+    /*@Relationship(type = "HAS_PAYMENT", direction = Relationship.Direction.OUTGOING)
+    private List<Payment> payments = new ArrayList<>();*/
+    /*@Relationship(type="APPEARS_ON", direction = Relationship.Direction.OUTGOING)
+    private List<AppearsOn> releases;*/
 
+    @Relationship(type = "HAS_PAYMENT", direction = Relationship.Direction.OUTGOING)
+    private List<Payment> payments;
 }
