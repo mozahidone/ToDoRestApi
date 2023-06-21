@@ -1,10 +1,9 @@
 package com.mozahidone.graphdb.controller;
 
-import com.mozahidone.graphdb.domain.readmodel.Movie;
-import com.mozahidone.graphdb.domain.readmodel.Person;
-import com.mozahidone.graphdb.repository.MovieRepository;
-import com.mozahidone.graphdb.repository.PersonRepository;
-import com.mozahidone.graphdb.service.MovieService;
+import com.mozahidone.graphdb.domain.readmodel.Account;
+import com.mozahidone.graphdb.domain.readmodel.Payment;
+import com.mozahidone.graphdb.repository.AccountRepository;
+import com.mozahidone.graphdb.service.AccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,35 +11,26 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class AccountController {
 
-    final MovieService service;
-    final PersonRepository personRepository;
-    final MovieRepository movieRepository;
+    final AccountService accountService;
+    final AccountRepository accountRepository;
 
-    public AccountController(MovieService service, PersonRepository personRepository, MovieRepository movieRepository) {
-        this.service = service;
-        this.personRepository = personRepository;
-        this.movieRepository = movieRepository;
+    public AccountController(AccountService accountService, AccountRepository accountRepository) {
+        this.accountService = accountService;
+        this.accountRepository = accountRepository;
     }
 
-    // curl http://localhost:8080/acting/Tom%20Hanks/Sleepless%20in%20Seattle -XPOST
-    @PostMapping(value = "/acting/{person}/{movie}")
-    public List<Person> acting(@PathVariable("person") String person, @PathVariable("movie") String movie) {
-        return service.actedIn(person,movie);
+    @PostMapping(value = "/account")
+    public ResponseEntity saveAccount(@RequestBody Account account) {
+        Account savedAccount = accountRepository.save(account);
+        return ResponseEntity.ok(savedAccount);
     }
 
-    @PostMapping(value = "/person")
-    public ResponseEntity savePerson(@RequestBody Person person) {
-        Person savedPerson = personRepository.save(person);
-        return ResponseEntity.ok(savedPerson);
-    }
-
-    @PostMapping(value = "/movie")
-    public ResponseEntity saveMovie(@RequestBody Movie movie) {
-        Movie savedMovie = movieRepository.save(movie);
-        return ResponseEntity.ok(savedMovie);
+    public List<Payment> paymentIn(@PathVariable("accountId") UUID accountId, @PathVariable("paymentId") UUID paymentId) {
+        return accountService.paymentIn(accountId, paymentId);
     }
 }
