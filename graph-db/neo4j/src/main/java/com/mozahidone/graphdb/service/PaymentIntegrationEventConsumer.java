@@ -52,20 +52,9 @@ public class PaymentIntegrationEventConsumer {
                 payment.setAccountId(event.getAccountId());
                 payment.setAmount(event.getAmount());
                 payment.setCorrelationId(event.getCorrelationId());
-                payment.setAccount(account);
 
-                if (account.getPayments() != null) {
-                    account.getPayments().add(payment);
-                } else {
-                    List<Payment> payments = new ArrayList<>();
-                    payments.add(payment);
-                    account.setPayments(payments);
-                }
-
-                //payment.setAccount(account);
-
-                //accountRepository.save(account);
-                paymentRepository.save(payment);
+                account.getPayments().add(payment);
+                accountRepository.save(account);
             }
         } catch (Exception e) {
             log.error("Error processing payment integration event: {}", e.getMessage(), e);

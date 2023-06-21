@@ -32,6 +32,6 @@ public class Account {
     /*@Relationship(type="APPEARS_ON", direction = Relationship.Direction.OUTGOING)
     private List<AppearsOn> releases;*/
 
-    @Relationship(type = "HAS_PAYMENT", direction = Relationship.Direction.OUTGOING)
-    private List<Payment> payments;
+    @Relationship(type = "HAS_PAYMENT", direction = Relationship.Direction.INCOMING)
+    private List<Payment> payments = new ArrayList<>();
 }

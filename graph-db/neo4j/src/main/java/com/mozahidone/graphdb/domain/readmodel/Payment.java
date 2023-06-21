@@ -30,6 +30,6 @@ public class Payment {
   /*@JsonIgnore
   @Relationship(type = "HAS_PAYMENT", direction = Relationship.Direction.INCOMING)
   private Account account;*/
-  @Relationship(type = "HAS_PAYMENT", direction = Relationship.Direction.INCOMING)
-  private Account account;
+  /*@Relationship(type = "HAS_PAYMENT", direction = Relationship.Direction.INCOMING)
+  private Account account;*/
 }
