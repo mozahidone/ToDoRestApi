@@ -16,4 +16,5 @@ public class AccessingDataNeo4jApplication {
 	public static void main(String[] args) throws Exception {
 		SpringApplication.run(AccessingDataNeo4jApplication.class, args);
 	}
+
 }

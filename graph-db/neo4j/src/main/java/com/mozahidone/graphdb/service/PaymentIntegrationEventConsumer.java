@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -42,13 +44,17 @@ public class PaymentIntegrationEventConsumer {
             log.debug("Received payment integration event: {}", event);
             if(event.getEventType().equalsIgnoreCase("PaymentSucceededEvent")) {
 
+                Account account = accountRepository.findById(event.getAccountId()).get();
+
                 Payment payment = new Payment();
                 payment.setId(UUID.randomUUID());
                 payment.setPaymentDate(event.getEventTimestamp());
                 payment.setAccountId(event.getAccountId());
                 payment.setAmount(event.getAmount());
                 payment.setCorrelationId(event.getCorrelationId());
-                paymentRepository.save(payment);
+
+                account.getPayments().add(payment);
+                accountRepository.save(account);
             }
         } catch (Exception e) {
             log.error("Error processing payment integration event: {}", e.getMessage(), e);
