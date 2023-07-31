@@ -40,6 +40,7 @@
         <module>aws-services</module>
 		<module>event-sourcing</module>
 		<module>graph-db</module>
-	</modules>
+        <module>spring-kafka-integration</module>
+    </modules>
 
 </project>
