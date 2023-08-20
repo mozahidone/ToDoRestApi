@@ -41,6 +41,7 @@
 		<module>event-sourcing</module>
 		<module>graph-db</module>
         <module>spring-kafka-integration</module>
-    </modules>
+		<module>OpenAI-integration</module>
+	</modules>
 
 </project>
