@@ -42,6 +42,7 @@
 		<module>graph-db</module>
         <module>spring-kafka-integration</module>
 		<module>OpenAI-integration</module>
-	</modules>
+        <module>spring-security-modules</module>
+    </modules>
 
 </project>
