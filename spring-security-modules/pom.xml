@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>CasAuthorizationServer</module>
+        <module>SpringBootOauth2AuthorizationServer</module>
     </modules>
 
 </project>
