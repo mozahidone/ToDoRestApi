@@ -5,14 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mozahidone</groupId>
-        <artifactId>spring</artifactId>
+        <artifactId>spring-security-modules</artifactId>
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>spring-security-modules</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>CasAuthorizationServer</module>
-    </modules>
+    <artifactId>CasAuthorizationServer</artifactId>
+    <packaging>jar</packaging>
+    <name>CasAuthorizationServer</name>
+    <description>Cas Authorization Server</description>
 
 </project>
