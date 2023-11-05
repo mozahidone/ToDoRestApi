@@ -1,0 +1,27 @@
+server:
+  port: 9093
+
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - TokenRelay=
+      routes:
+        - id: resource-server
+          uri: http://localhost:8089
+          predicates:
+            - Path=/secure/**
+  security:
+    oauth2:
+      client:
+        registration:
+          gateway:
+            provider: custom-cas
+            client-id: 10000002
+            client-secret: 2324324drewerwwerew32432
+            authorization-grant-type: authorization_code
+            scope: openid
+            client-name: cas-oidc-client
+        provider:
+          custom-cas:
+            issuer-uri: http://localhost:8080/cas/oidc
