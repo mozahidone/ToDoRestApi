@@ -14,6 +14,7 @@
     <modules>
         <module>CasAuthorizationServer</module>
         <module>SpringBootOauth2AuthorizationServer</module>
+        <module>KeyCloakAuthorizationServer</module>
     </modules>
 
 </project>
