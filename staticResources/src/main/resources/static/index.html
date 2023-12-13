@@ -1,1 +1,34 @@
-This is html page...
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Page</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<h1>Hello, World!</h1>
+
+<button onclick="makeSecureRequest()">Make Secure Request</button>
+<a href="http://127.0.0.1:9093/secure" target="_blank">Make Secure Request (New Tab)</a>
+
+<script>
+    function makeSecureRequest() {
+        // Using jQuery for the GET request
+        $.ajax({
+            url: 'http://127.0.0.1:9093/secure',
+            method: 'GET',
+            success: function (data) {
+                console.log(data);
+                alert(data); // Display the response in an alert (you can handle it differently)
+            },
+            error: function (error) {
+                console.error('Error:', error);
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
