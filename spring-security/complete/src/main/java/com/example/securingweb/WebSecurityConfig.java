@@ -25,7 +25,9 @@ public class WebSecurityConfig {
 				.loginPage("/login")
 				.permitAll()
 			)
-			.logout((logout) -> logout.permitAll());
+			.logout((logout) -> logout.permitAll()
+					.logoutUrl("/doLogout")
+					.logoutSuccessUrl("/logout-success"));
 
 		return http.build();
 	}
